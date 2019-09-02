@@ -12,5 +12,4 @@
 *.out
 .idea
 .DS_Store
-config.yml
 

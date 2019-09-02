@@ -1,15 +1,15 @@
 package parser
 
 import (
+	"DLK-BaixarquadrinhosReptile/tools"
 	bytes2 "bytes"
 	"github.com/PuerkitoBio/goquery"
 	"github.com/dollarkillerx/easyutils/clog"
-	"github.com/dollarkillerx/easyutils/httplib"
+	"log"
 	"time"
 )
 
 type ParserHomeUrl struct {
-
 }
 
 func (p *ParserHomeUrl) ParserItem(urlList1 chan string, urlList2 chan string) {
@@ -18,12 +18,12 @@ ck:
 		select {
 		case url, ok := <-urlList1:
 			if ok {
+				log.Print("收到任务正在执行 解析")
 
-
-			// 爬虫主体Start
+				// 爬虫主体Start
 				a := 0
 			bk:
-				bytes, e := httplib.EuUserGet(url)
+				bytes, e := tools.HttpGet(url)
 				if e != nil {
 					clog.Println("# 第二级: 任务错误，正在尝试第" + string(a) + "次")
 					clog.Println(e.Error())
@@ -45,7 +45,7 @@ ck:
 					}
 				})
 
-			// end
+				// end
 
 			} else {
 				close(urlList2)

@@ -8,17 +8,17 @@ import (
 
 func AnalysisHtml(url string) (string, error) {
 
-	ctx := context.Background()
-	options := []chromedp.ExecAllocatorOption{
-		chromedp.ProxyServer("http://127.0.0.1:8001"),
-	}
+	//ctx := context.Background()
+	//options := []chromedp.ExecAllocatorOption{
+	//	chromedp.ProxyServer("http://127.0.0.1:8001"),
+	//}
+	//
+	//allocator, cancelFunc := chromedp.NewExecAllocator(ctx, options...)
+	//
+	//defer cancelFunc()
 
-	allocator, cancelFunc := chromedp.NewExecAllocator(ctx, options...)
-
-	defer cancelFunc()
-
-	//ctx, cancel := chromedp.NewContext(context.Background())
-	ctx, cancel := chromedp.NewContext(allocator)
+	//ctx, cancel := chromedp.NewContext(allocator)
+	ctx, cancel := chromedp.NewContext(context.Background())
 	defer cancel()
 
 	// run
