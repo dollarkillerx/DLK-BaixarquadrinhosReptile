@@ -6,6 +6,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 	"github.com/dollarkillerx/easyutils"
 	"github.com/dollarkillerx/easyutils/clog"
+	"github.com/dollarkillerx/easyutils/compression"
 	"io/ioutil"
 	"log"
 	"strings"
@@ -118,6 +119,11 @@ bk1:
 		//Img:  imgpath,
 		Path: filepath + "/one.zip",
 		Name: strings.TrimSpace(text),
+	}
+
+	e = compression.Unzip(filepath+"/one.zip", filepath)
+	if e != nil {
+		clog.Println(e.Error())
 	}
 
 	return &data

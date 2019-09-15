@@ -2,6 +2,7 @@ package test
 
 import (
 	"fmt"
+	"github.com/dollarkillerx/easyutils/compression"
 	"log"
 	"testing"
 	"time"
@@ -36,4 +37,13 @@ func TestCh(t *testing.T) {
 	}(ints)
 
 	time.Sleep(1000 * time.Second)
+}
+
+
+func TestZip(t *testing.T) {
+	data := "/Users/cpx/Github/Work/DLK-BaixarquadrinhosReptile/img/A Poderosa Thor 21 – Jason Aaron/d079a9070ec73d5a07449478797538bda48645adf3fdf3f33459395625e0476e/one.zip"
+	unzip := compression.Unzip(data, ".")
+	if unzip!= nil {
+		log.Println(unzip)
+	}
 }
